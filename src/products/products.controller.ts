@@ -58,4 +58,9 @@ export class ProductsController {
     return this.productsService.findDeleted(paginationDto);
   }
 
+  @MessagePattern({ cmd: 'validate_products' })
+  validateProducts(@Payload() productsIds: string[]) {
+    return this.productsService.validateProducts(productsIds);
+  }
+
 }
